@@ -1,7 +1,7 @@
 // ====== EDIT YOUR DETAILS HERE (central site config) ======
 export const me = {
   name: "Masum Islam",
-  brand: "Masum Islam AI",
+  brand: "Masum Islam Dev",
   role: "full stack web developer",
   email: "markket287@gmail.com",
   location: "Bangladesh",
