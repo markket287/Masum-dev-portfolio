@@ -37,7 +37,7 @@
 
 //       <main className="mx-auto max-w-5xl px-5">
 //         <section id="about" className="scroll-mt-20 py-16">
-//           <h2 className="mb-8 text-3xl font-bold">About me</h2>
+//           <NeonHeading>About Me</NeonHeading>
 //           <Reveal className="grid items-center gap-10 md:grid-cols-[240px_1fr]">
 //             <img src="/me.jpg" alt={`Portrait of ${me.name}`} width={240} height={240} className="mx-auto h-60 w-60 rounded-2xl border border-line object-cover" />
 //             <div className="space-y-4 text-mute">
@@ -49,7 +49,7 @@
 //         </section>
 
 //         <section id="services" className="scroll-mt-20 py-16">
-//           <h2 className="mb-8 text-3xl font-bold">What I do</h2>
+//           <NeonHeading>What I Do</NeonHeading>
 //           <div className="grid gap-5 md:grid-cols-3">
 //             {services.map((s, i) => (
 //               <Reveal key={s.t} delay={i * 0.1}>
@@ -70,7 +70,7 @@
 //         </section>
 
 //         <section id="contact" className="scroll-mt-20 py-16 text-center">
-//           <h2 className="mb-4 text-3xl font-bold">Contact Me</h2>
+//           <NeonHeading>Contact Me</NeonHeading>
 //           <p className="mx-auto mb-8 max-w-lg text-mute">I am open to new projects and collaborations. Send me a message and I will reply as soon as I can.</p>
 //           <ContactForm />
 //           <p className="mt-6 text-mute">Or email me directly: <a className="text-accent hover:underline" href={mail}>{me.email}</a></p>
@@ -90,13 +90,14 @@ import Reveal from "./components/Reveal";
 import ContactForm from "./components/ContactForm";
 import HeroVisual, { Backdrop } from "./components/HeroVisual";
 import NeonHeading from "./components/NeonHeading";
+import SocialLinks from "./components/SocialLinks";
 
 import { me, services, skills, nav } from "../lib/site";
 
 export default function Home() {
   const first = me.name.split(" ")[0];
   const mail = `mailto:${me.email}?subject=Project%20inquiry`;
-  const social = [["Fiverr", me.fiverr], ["GitHub", me.github], ["LinkedIn", me.linkedin]].filter(([, u]) => u);
+  const social = [{ name: "Fiverr", url: me.fiverr }, { name: "GitHub", url: me.github }, { name: "LinkedIn", url: me.linkedin }].filter((l) => l.url);
   return (
     <>
       <Nav brand={me.brand} links={nav} />
@@ -161,9 +162,7 @@ export default function Home() {
           <p className="mx-auto mb-8 max-w-lg text-mute">I am open to new projects and collaborations. Send me a message and I will reply as soon as I can.</p>
           <ContactForm />
           <p className="mt-6 text-mute">Or email me directly: <a className="text-accent hover:underline" href={mail}>{me.email}</a></p>
-          <div className="mt-4 flex justify-center gap-6">
-            {social.map(([n, u]) => <a key={n} href={u} target="_blank" rel="noreferrer" className="text-mute hover:text-accent">{n}</a>)}
-          </div>
+          <SocialLinks links={social} />
         </section>
       </main>
       <footer className="border-t border-line py-8 text-center text-sm text-mute">

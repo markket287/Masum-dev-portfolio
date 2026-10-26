@@ -6,8 +6,9 @@ export const me = {
   email: "markket287@gmail.com",
   location: "Bangladesh",
   fiverr: "https://www.fiverr.com/masumislamai",
-  github: "", // e.g. "https://github.com/yourname"
-  linkedin: "", // e.g. "https://www.linkedin.com/in/yourname"
+  github: "https://github.com/markket287",
+  // linkedin: "https://www.linkedin.com/in/mark-ket-018b97446",
+  linkedin: "",
 };
 export const services = [
   { t: "Frontend Development", d: "Clean, responsive interfaces built with React, Next.js and Tailwind CSS." },
